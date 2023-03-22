@@ -1,5 +1,5 @@
 import React from "react";
-import {Link,useRouteMatch} from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
@@ -14,7 +14,7 @@ function SidebarItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
   let { path, url } = useRouteMatch();
 
   function toggleCollapse() {
-    setCollapsed(prevValue => !prevValue);
+    setCollapsed((prevValue) => !prevValue);
   }
 
   function onClick(e) {
@@ -42,12 +42,7 @@ function SidebarItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
 
   return (
     <>
-      <ListItem
-        onClick={onClick}
-        button
-        dense
-        {...rest}
-      >
+      <ListItem onClick={onClick} button dense {...rest}>
         <div
           style={{ paddingLeft: depth * depthStep }}
           className="sidebar-item-content"
@@ -65,7 +60,7 @@ function SidebarItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
                 {subItem === "divider" ? (
                   <Divider style={{ margin: "6px 0" }} />
                 ) : (
-                  <Link to={subItem.layout+subItem.path}> 
+                  <Link to={subItem.layout + subItem.path}>
                     <SidebarItem
                       depth={depth + 1}
                       depthStep={depthStep}
@@ -91,14 +86,14 @@ function Sidebar({ items, depthStep, depth, expanded }) {
             {sidebarItem === "divider" ? (
               <Divider style={{ margin: "6px 0" }} />
             ) : (
-              <Link to={sidebarItem.layout+sidebarItem.path}>
-                  <SidebarItem
-                    depthStep={depthStep}
-                    depth={depth}
-                    expanded={expanded}
-                    item={sidebarItem}
+              <Link to={sidebarItem.layout + sidebarItem.path}>
+                <SidebarItem
+                  depthStep={depthStep}
+                  depth={depth}
+                  expanded={expanded}
+                  item={sidebarItem}
                 />
-                </Link>
+              </Link>
             )}
           </React.Fragment>
         ))}

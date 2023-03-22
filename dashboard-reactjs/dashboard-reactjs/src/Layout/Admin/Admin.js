@@ -1,29 +1,28 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import React from "react";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 import Sidebar from "../../Views/SideBar/Sidebar";
-import { items } from '../../routes';
-import Switches from '../../components/Switches/Switches';
+import { items } from "../../routes";
+import Switches from "../../components/Switches/Switches";
 
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-
+import Badge from "@material-ui/core/Badge";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import MailIcon from "@material-ui/icons/Mail";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import MoreIcon from "@material-ui/icons/MoreVert";
 
 import "./Admin.css";
 
@@ -31,10 +30,10 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -42,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -51,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -61,24 +60,86 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
+  },
+  drawerlogoName: {
+    fontSize: "17px",
+    fontweight: "bold",
+    paddingRight: "15px",
+  },
+  left_profile: {
+    width: "100%",
+    height: "115px",
+    display: "flex",
+    padding: "10px",
+    zIndex: "0",
+    fontSize: "14px",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  left_avatar: {
+    width: "80px",
+    height: "80px",
+    display: "flex",
+    overflow: "hidden",
+    position: "relative",
+    fontSize: "1.25rem",
+    alignItems: "center",
+    flexShrink: "0",
+    fontFamily: "Roboto Helvetica Arial sans-serif",
+    lineHeight: "1",
+    userSelect: "none",
+    borderRadius: "50%",
+    justifyContent: "center",
+  },
+  left_profile_h: {
+    width: "110px",
+    overflow: "hidden",
+    fontSize: "18px",
+    whiteSpace: "nowrap",
+    marginBottom: "0",
+    textOverflow: "ellipsis",
+  },
+
+  left_profile_p: {
+    width: "110px",
+    display: "block",
+    overflow: "hidden",
+    fontSize: "12px",
+    whiteSpace: "nowrap",
+    marginBottom: "0",
+    textOverflow: "ellipsis",
+    margin: "0 0 0.75em",
+  },
+  left_profile_content: {
+    width: "100%",
+    height: "115px",
+    paddingTop: "26px",
+    paddingLeft: "15px",
+    zIndex: "0",
+    fontSize: "14px",
+    alignItems: "center",
   },
   content: {
+    backgroundColor: "#2a2b36 !important",
+    color: "#ffffff !important",
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    backgroundColor: "#2a2b36 !important",
+    color: "#ffffff !important",
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -88,34 +149,34 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
     },
   },
   inputRoot: {
-    color: 'inherit',
+    color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
     },
   },
   sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
     },
   },
   sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
   },
 }));
@@ -132,7 +193,6 @@ export default function Admin() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -157,14 +217,14 @@ export default function Admin() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       id={menuId}
       keepMounted
-      transformOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      transformOrigin={{ vertical: "bottom", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
@@ -172,14 +232,14 @@ export default function Admin() {
       <MenuItem onClick={handleMenuClose}>Parent</MenuItem>
     </Menu>
   );
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      transformOrigin={{ vertical: "bottom", horizontal: "right" }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
@@ -234,7 +294,7 @@ export default function Admin() {
           </IconButton>
           <Typography variant="h8" noWrap>
             Ghost Coder RSA
-            </Typography>
+          </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 2 new mails" color="inherit">
@@ -271,7 +331,7 @@ export default function Admin() {
           </div>
         </Toolbar>
       </AppBar>
-      
+
       {renderMobileMenu}
       {renderMenu}
 
@@ -285,12 +345,42 @@ export default function Admin() {
         }}
       >
         <div className={classes.drawerHeader}>
+          <h1 className={classes.drawerlogoName}>
+            <span className={classes.drawerlogoName}>Greg UI 2023</span>
+          </h1>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </div>
+        <div className={classes.left_profile}>
+          <div className={classes.left_avatar}>
+            <img
+              alt="John Doe"
+              src="https://randomuser.me/api/portraits/men/75.jpg"
+              class="MuiAvatar-img"
+            />
+          </div>
+          <div className={classes.left_profile_content}>
+            <h4 className={classes.left_profile_h}>Gregory</h4>
+            <p className={classes.left_profile_p}>Administrator</p>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
+              tabindex="0"
+              type="button"
+            >
+              <span class="MuiButton-label">
+                <i class="jss315 jss316"></i>online
+              </span>
+              <span class="MuiTouchRipple-root"></span>
+            </button>
+          </div>
+        </div>
         <Divider />
-        <Sidebar items={items} /> 
+        <Sidebar items={items} />
       </Drawer>
       <main
         className={clsx(classes.content, {
@@ -298,7 +388,7 @@ export default function Admin() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Switches/>
+        <Switches />
       </main>
     </div>
   );

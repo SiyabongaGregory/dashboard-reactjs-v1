@@ -1,18 +1,16 @@
-import React, { Component,Suspense } from "react";
-import { BrowserRouter} from "react-router-dom";
+import React, { Component, Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
 
-const Admin = React.lazy(()=>import('./Layout/Admin/Admin'));
+const Admin = React.lazy(() => import("./Layout/Admin/Admin"));
 
 export default class App extends Component {
-
   render() {
     return (
       <BrowserRouter>
-          <Suspense fallback={<div>Loading...</div>}>
-             <Admin/>
-          </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Admin />
+        </Suspense>
       </BrowserRouter>
     );
   }
 }
-
