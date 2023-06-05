@@ -50,7 +50,7 @@ export default function ProfileForm() {
                       <Input
                         id="exampleAddress"
                         name="address"
-                        placeholder="1234 Main St"
+                        placeholder="10101 Durban Umhlanga"
                       />
                     </FormGroup>
                     <FormGroup>

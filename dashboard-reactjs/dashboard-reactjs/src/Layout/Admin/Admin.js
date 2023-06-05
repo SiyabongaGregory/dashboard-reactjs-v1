@@ -73,8 +73,8 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "15px",
   },
   left_profile: {
-    width: "100%",
-    height: "115px",
+    width: "90%",
+    height: "90px",
     display: "flex",
     padding: "10px",
     zIndex: "0",
@@ -83,8 +83,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   left_avatar: {
-    width: "80px",
-    height: "80px",
+    width: "100px",
+    height: "100px",
     display: "flex",
     overflow: "hidden",
     position: "relative",
@@ -126,8 +126,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   content: {
-    backgroundColor: "#2a2b36 !important",
-    color: "#ffffff !important",
+    //backgroundColor: "#2a2b36 !important",
+    //color: "#ffffff !important",
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
@@ -137,8 +137,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: -drawerWidth,
   },
   contentShift: {
-    backgroundColor: "#2a2b36 !important",
-    color: "#ffffff !important",
+    //backgroundColor: "#2a2b36 !important",
+    //color: "#ffffff !important",
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -346,7 +346,7 @@ export default function Admin() {
       >
         <div className={classes.drawerHeader}>
           <h1 className={classes.drawerlogoName}>
-            <span className={classes.drawerlogoName}>Greg UI 2023</span>
+            <span className={classes.drawerlogoName}>Gregory 2023</span>
           </h1>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
@@ -359,8 +359,8 @@ export default function Admin() {
         <div className={classes.left_profile}>
           <div className={classes.left_avatar}>
             <img
-              alt="John Doe"
-              src="https://randomuser.me/api/portraits/men/75.jpg"
+              alt="Siyabonga Gregory"
+              src="https://i.postimg.cc/J0STmdML/2023-03-22-16-28.png"
               class="MuiAvatar-img"
             />
           </div>
